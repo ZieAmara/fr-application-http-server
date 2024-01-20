@@ -2,9 +2,9 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /frontend
 RUN npm install -g @angular/cli
-COPY ../fr-administration-front/package*.json .
+COPY ./fr-administration-front/package*.json ./
 RUN npm install
-COPY ../fr-administration-front .
+COPY ./fr-administration-front ./
 RUN npm run build
 
 # Stage 2: Setup Nginx to serve the built frontend
